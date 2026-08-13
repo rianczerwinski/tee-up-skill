@@ -20,6 +20,24 @@ Prevents:    overwhelm — the reason the user reached for this skill.
 Why it flips: the right version embeds every fact needed to decide *in the prompt*; the wrong one requires reconstructing context from earlier messages.
 Prevents:    forcing the user back through scrollback to answer.
 
+### Options without a grounded situation
+❌ Wrong:    "Option A: bounded slice of the typed-metadata issue. Option B: the login bundle issue. I lean A."
+✅ Right:    "You need a first PR that gets reviewed by the people whose trust matters. Reviews route by subsystem, and the reliability lane is where two of the three actually read code. Given that: [options]."
+Why it flips: the right version establishes when and why the question bites before offering answers; without it the options are a quiz on reasoning the user never saw.
+Prevents:    the user having to reverse-engineer the stakes to evaluate the choice.
+
+### Internals tour instead of lived consequence
+❌ Wrong:    "Option A refactors the error DTO and threads typed cause objects through the gateway boundary."
+✅ Right:    "Option A means a failed model call can finally say *why* it failed instead of a generic string — so the UI can tell a billing problem from an outage. New risk: every layer that reads errors has to be updated, and one missed reader silently degrades."
+Why it flips: the right version gives what you'd notice from outside plus what could surprise you later; mechanism appears only where it changes the consequence.
+Prevents:    a decision presented as an architecture lecture, which the user cannot weigh on taste.
+
+### Carried-over shorthand
+❌ Wrong:    "This is the H2 lane, so it favors the co-primary over the entry move."
+✅ Right:    "This favors starting where the reliability work lives — the typed-errors issue — over the faster-looking login one."
+Why it flips: the wrong version uses labels coined during the investigation; the user was not present for their coinage and would have to look them up.
+Prevents:    private vocabulary leaking into a prompt that must stand alone.
+
 ### Patronizing scaffolding
 ❌ Wrong:    "Should I keep the cleaner-named one? **Yes or no.**"  /  "…delete the duplicate (a duplicate is an identical copy)…"
 ✅ Right:    "Keep `claude.ai/` or `claude.ai-export-pipeline/`? I lean `claude.ai/` — cleaner name."
