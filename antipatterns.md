@@ -14,6 +14,21 @@ Prevents:    the single most-hated interaction — a complex judgment reduced to
 Why it flips: a visible queue forces the user to hold and manage state; one-at-a-time offloads it. The whole point is *not* seeing the pile.
 Prevents:    overwhelm — the reason the user reached for this skill.
 
+### One operation mistaken for one conversational turn
+❌ Wrong:    User picks an option. Agent replies "Confirmed" and stops; execution, re-ranking, and presenting the next choice each wait for another prompt.
+✅ Right:    In the same agent turn, incorporate the choice, perform any authorized follow-through, re-rank, and present the next complete unresolved choice. If none remain, close the sequence.
+Why it flips: the human boundary is a genuine decision, not each node in the agent's procedure; the whole response between decisions belongs to the agent.
+
+### Requiring confirmation after the fork has dissolved
+❌ Wrong:    User asks whether partial results offer any benefit for their stated workflow. Agent determines there is no remaining reason to require them, recommends one finished result, and waits for "okay, that's solved" before advancing.
+✅ Right:    "For your workflow, use one finished result with progress visible. [Present the next genuine choice in full.]"
+Why it flips: the answer has already resolved the apparent fork under the user's constraints. Asking whether it is resolved adds no information and forces the user to operate the sequence.
+
+### Treating a recommendation as the user's decision
+❌ Wrong:    User asks why the agent prefers one option. Agent explains its preference and immediately moves on even though both options still express different user priorities.
+✅ Right:    Explain the preference and keep the current choice open when the user's constraints do not resolve it.
+Why it flips: advancing automatically after resolution does not authorize inventing assent; a real unresolved preference still belongs to the user.
+
 ### Non-self-contained question
 ❌ Wrong:    "So — keep or delete the duplicate folder?"
 ✅ Right:    "Two folders hold byte-identical files: `claude.ai/` (cleaner name) and `claude.ai-export-pipeline/` (has a description file). Keep one, delete the other — which?"

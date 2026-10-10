@@ -35,18 +35,29 @@ Before a decision is ever shown, close every gap *you* can close. Verify the fac
 
 ## Serving several
 
-When decisions have accumulated, the move is the same — repeated with sequencing:
+**One unresolved user choice at a time, not one procedural operation per conversational turn.** The request to serve several decisions stays active across replies. The agent owns the work between user decisions; a user need not request the next item or confirm that a resolved item is resolved.
 
-```
-intake threads → work each to a home run → order (easy wins first, one hard finale) →
-  present the top one → WAIT for pick → execute/park → re-rank remainder → present next → …
-```
+### Agent turn — prepare and present the first real choice
 
-1. **Intake.** Take the thread list — from `closeout`, `audit-planes`, an explicit list, or the decisions accumulated this session. Normalize each to: the decision, the real options, the tradeoff, current lean, what it unblocks, reversibility, and cost-to-clear. Threads arriving from an `advisory` axis-verdict are already in this form — a `default / runner-up / flip-when` triple maps onto lean / real option / tradeoff; take them as-is rather than re-deriving.
-2. **Order: clear the decks, hard thing last.** Strip the easy wins first to declutter mental space, converging on the single hardest decision so it lands last, met with a cleared mind. Ease-weighted, with Fisher-information as secondary weight (full method in [references/ordering.md](references/ordering.md)).
-3. **Present exactly one.** Never reveal that others are queued beyond a bare count ("1 of 5"). No "and next…". No stacking.
-4. **Wait, then re-rank.** An answer can change, merge, or dissolve later threads, so re-rank the remainder before presenting the next — adaptive, the way computerized adaptive testing re-selects its next item after each response.
-5. **Close.** When the list is empty, summarize what was decided and what each decision set in motion — once, compactly.
+Take the thread list from `closeout`, `audit-planes`, an explicit list, or the current conversation. For each item identify the decision, real options, tradeoff, lean, what it unblocks, reversibility, and cost-to-clear. Reuse an `advisory` verdict's default, challenger, and flip condition where available.
+
+Resolve research and factual gaps yourself. Apply existing user preferences and authorization; remove questions they already answer. Order the remaining genuine choices easy-first, hardest-last, subject to dependencies (see [references/ordering.md](references/ordering.md)). Present the first unresolved choice in the complete situation/options/tradeoff/lean shape. Yield only because the user has a real preference left to supply.
+
+### User turn — choose, clarify, correct, or redirect
+
+Read the whole reply for what it settles or changes. A choice can be expressed through a constraint or correction rather than an option label. A question may leave the choice open, or its answer may establish that the apparent fork has no remaining preference dimension. A request to stop or change scope governs the sequence.
+
+### Agent turn — answer, incorporate, and advance in one response
+
+Answer any direct question first. Incorporate the user's choice or constraint, do any already-authorized work needed to apply it (or retain it as a decision when this is discussion only), update affected items, and re-rank the remainder. **All of that belongs to this agent turn, including the complete next unresolved choice.** Acknowledgment, explanation, execution, and re-ranking are parts of the turn, not separate occasions to wait for another user message.
+
+If the reply or your answer resolves the current fork under the user's existing constraints, state the consequence briefly and present the next genuine choice in the same response. Do not insert a confirmation round or wait for the user to say "that's solved" or "next." Your own lean alone does not settle an unresolved preference: when a real choice remains, answer the question and keep that choice open rather than moving past it.
+
+End the response at one of these boundaries:
+
+- **A genuine user decision remains:** present that one complete choice, then wait. It may be the current choice after clarification or the next choice after resolution. Keep the rest of the queue private beyond an optional count; a brief disposition of the resolved item plus one new choice is not stacking.
+- **No decisions remain:** give one compact account of the outcomes and what they set in motion. Do not manufacture another fork to sustain the sequence.
+- **An actual blocker or user-directed stop prevents continuation:** identify it directly; retain the remaining work without asking for generic permission to continue.
 
 This is progressive disclosure applied to decision-making (the GOV.UK "one thing per page" pattern, grounded in Hick's Law: fewer simultaneous choices → faster, un-fatigued decisions).
 

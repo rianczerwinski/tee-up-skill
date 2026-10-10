@@ -1,51 +1,43 @@
-# Example: raw thread list → clear-the-decks, one-at-a-time platter
+# Example: one unresolved choice per user turn
 
-A worked run showing intake, working-to-home-run, ease-weighted ordering (easy wins first, one hard finale), and single-item **plain-prose** presentation. No widget is used anywhere.
+The user asks: "Walk me through the choices for the document reader, one at a time. People should be able to install it and use it without configuring readers."
 
-## Input: accumulated open threads (unworked, as they surfaced)
+## Agent turn — prepare the whole queue, present one choice
 
-```
-- claude.ai dedup: two identical folders, keep one?
-- fix stale config refs (.claude/rules/adrs.md etc. point at old path)
-- familiars/ fate: vestigial folder, keep/fold/retire?
-- habits/ seeding: folder is thin, add docs?
-- build claude.ai Project-doc capture in Octopus? (feasibility just confirmed)
-```
+The agent applies the already-stated installation requirement without asking whether built-in readers should exist. It identifies two remaining preferences: whether partial output would be useful, and how unresolved readings should appear in the final output. Neither requires implementing anything during this discussion.
 
-## Step: work each to a home run (labor done BEFORE any question)
+> You can receive sections as they become ready, but those sections may change during checking. Or you can wait for one stable result, with progress visible throughout. Partial delivery helps if you can start using the beginning before the rest is ready; one result is simpler to consume. My lean is one result unless early sections have an actual use in your workflow.
 
-- **config refs** → exact edits known (`jarvis/decisions/` → `axis/psyche/superego/decisions/`), 3 files, user already leaned yes. Residual = a quick go-ahead. *Easiest.*
-- **habits seeding** → two candidate docs identified. Residual = whether to bother now. Easy, low stakes, unblocks nothing.
-- **familiars** → confirmed the live agent loads from `.claude/agents/`, so the folder is a non-loaded copy. Residual = keep-as-design-home vs fold vs retire. Easy-moderate, self-contained.
-- **dedup** → verified byte-identical; canonical name `claude.ai/`; archives live in `recollection/`. **But mooted by the capture decision** — if capture gets built, both export folders retire regardless of which you'd keep.
-- **Project capture** → feasibility proven; a real build (hours), high stakes. The taste-question is a go/no-go on the plan — legit preference — but it's the *hard* one. *Hardest.*
+The agent yields because that workflow preference is genuinely unknown. It does not expose the second decision yet.
 
-## Step: order — clear the decks, hard thing last
+## User turn — supply a constraint through a question
 
-1. **config refs** — easiest, near-settled, quick win. Clears an item in one word.
-2. **habits seeding** — easy, optional.
-3. **familiars fate** — easy-moderate, self-contained.
-4. **Project capture (finale)** — hardest, highest-stakes. Deferred to last for full attention.
-   - **dedup is folded in as a rider on the finale, not served early.** It's dominated by capture: serving it first would risk asking a question capture's answer erases (the "static list serves a soon-mooted question" trap). So capture's outcome resolves it — see re-rank.
+> I use the complete output in another job; partial pages wouldn't help. What's the best option here?
 
-*Note the tension (per `references/ordering.md`): dedup depends on capture, and capture is the hard finale. Rather than pull the hard one early (which dependency-first would do), the mooted item rides on the finale's answer. Flag-and-let-taste-settle would also be valid; here dominance makes the rider clean.*
+## Agent turn — resolve and present the next choice together
 
-## Step: present ONE — plain prose, item 1 of 4
+> Use one finished result, with progress visible while it runs. Your next job needs the whole output, so partial delivery adds no benefit here.
+>
+> When a passage still cannot be read confidently, should the main output include the best reading marked uncertain, or leave a gap with the candidate readings alongside it? Including the attempt keeps the text easier to read, but downstream consumers could overlook the uncertainty. Leaving a gap makes the uncertainty harder to miss, but requires choosing a candidate before using that passage. My lean is a gap in the main output with the candidates preserved alongside it.
 
-> **Fix the stale config references?** Three files (`​.claude/rules/adrs.md` and two agent files) still point ADR placement at the old `jarvis/decisions/` path; the ADRs now live at `axis/psyche/superego/decisions/`. It's a mechanical find-replace — the misdirection is the only cost of leaving it.
-> I'd just fix all three. Any reason to hold off?
+This is one complete agent turn. The first paragraph answers and resolves the current fork; the rest tees up the next. There is no intervening "is that settled?", confirmation-only response, or request to continue. The second lean remains the agent's recommendation, not an owner decision.
 
-*(Then stop. Nothing about items 2–4 beyond "1 of 4". Wait for the answer in whatever form it comes.)*
+## User turn — ask a question that leaves the preference open
 
-## Step: re-rank after each answer
+> Would the uncertain reading be lost if we leave a gap?
 
-- Clear config refs → serve **habits seeding**, then **familiars**.
-- Reaching the finale, present **capture** as the last decision, with dedup as its rider:
+## Agent turn — answer without inventing resolution
 
-> **Build Claude.ai Project-doc capture into Octopus?** *(the last one — take your time)*
-> Feasibility is proven from your existing captures: Projects are bulk-listable and pull with the same poll that grabbed your 5k conversations. A few hours of work.
-> — **Build it** → the two manual export folders become redundant and retire themselves; the dedup question disappears with them.
-> — **Not now** → I keep one copy (`claude.ai/`, moved under `recollection/`) and delete the duplicate; revisit capture later.
-> I lean *build it* — it dissolves the folder cleanup underneath and makes the docs self-maintaining.
+> No. The candidate readings stay attached to the passage. The remaining choice is whether the main text includes an uncertain attempt or leaves a gap. Both preserve the information; they differ in what someone encounters when reading or processing the main output.
 
-Why this shape: the run burns down three quick items so the user meets the one genuinely hard decision with a cleared deck — and the whole dedup thread never had to be asked on its own, because the finale's answer settles it.
+The agent waits on the same genuine choice. A factual question is not automatically a pick.
+
+## User turn — choose
+
+> Leave the gap and keep the candidates.
+
+## Agent turn — incorporate and close
+
+> The reader returns one finished result with progress visible while it runs. Unresolved passages appear as gaps, with candidate readings retained alongside them. Built-in readers remain part of the installation. That settles the choices in this sequence.
+
+There is no new question because the queue is empty. These are discussion outcomes, not claims that the reader has been implemented.
