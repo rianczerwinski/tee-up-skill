@@ -1,6 +1,7 @@
 ---
 name: tee-up
 description: Present a decision as a fully self-contained world the user can settle on taste alone — the situation grounded, each option given by what they'd notice from outside and what could surprise them, closing with a plain-language tradeoff and an honest lean. Written in lay English, assuming zero loaded context. Use for a single pending decision or fork ("what should I do here", "give me the call", "lay out the options", "set the stage", "make this a decision I can just make"), and for several accumulated decisions served strictly one at a time, easy wins first and the hardest last ("tee up the decisions", "one question at a time", "serve the open threads", "don't overwhelm me", "silver platter", "walk me through the choices"), or when another skill (closeout, audit-planes) needs its surfaced loose ends presented for taste input.
+license: MIT
 ---
 
 # tee-up
